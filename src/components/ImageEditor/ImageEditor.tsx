@@ -47,6 +47,11 @@ const ImageEditor = () => {
     setCurrentFilter('Brightness');
   };
 
+  // Apply filter to image
+  const filterStyle = {
+    filter: `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`,
+  };
+
   return (
     <div className='grid grid-cols-1 tablet:grid-cols-2 gap-5 p-5'>
       {/* left */}
@@ -240,6 +245,7 @@ const ImageEditor = () => {
                 : '/common/image-placeholder.svg'
             }`}
             alt='preview-img'
+            style={filterStyle}
           />
         </div>
         <div className='mt-4 flex items-center justify-between gap-3'>
