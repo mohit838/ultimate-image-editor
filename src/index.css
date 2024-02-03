@@ -34,10 +34,33 @@ body {
 /* When You have complex or long tailwind cls */
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    @apply py-2 max-mobile:w-full tablet:px-7 bg-[#ff8e69] text-[#242424] font-semibold rounded-md shadow-md hover:bg-[#ff6347];
   }
 
   .page-content-center {
     @apply flex items-center justify-center;
   }
+}
+
+.control-options {
+  @apply py-4 px-8 hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500 rounded-md border border-dashed border-[#f9f9f9] text-white text-[1.5rem];
+}
+
+.filter-info {
+  @apply flex text-white text-[1rem] justify-between;
+}
+.slider-range {
+  @apply w-full h-2  accent-[#ff6347];
+}
+
+.control-options-rotate-flip {
+  @apply px-4 py-2 mt-2 flex items-center justify-center hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500 rounded-md border border-dashed border-[#f9f9f9] text-white text-[1.5rem];
+}
+
+.preview-img {
+  @apply overflow-hidden;
+}
+
+.preview-img > img {
+  @apply w-full rounded-md;
 }

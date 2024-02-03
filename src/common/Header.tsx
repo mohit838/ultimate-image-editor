@@ -4,23 +4,23 @@ const Header = () => {
       <h1 className='text-[3rem] font-jostFont font-bold '>
         {'Open And Free Ultimate Image Editor'}
       </h1>
-      <h2 className='text-[1.5rem] underline'>
+      <h2 className='text-[1.5rem] underline px-2 tablet:px-0'>
         {'Introducing the Ultimate Image Editor: Your Gateway to Creativity!'}
       </h2>
       <p className='text-[1.125rem] font-jostFont font-normal container mx-auto py-5'>
         Unlock your creative potential with our open and free image editing
         software. With just a few clicks, you can rotate, flip, and adjust color
-        contrast to perfection, all at absolutely no cost.
-        <br /> But that's not all - we're an open-source project, meaning anyone
-        can contribute and help shape the future of image editing. Join us in
-        revolutionizing the way the world edits images - download now and
-        unleash your imagination!
+        contrast to perfection, all at absolutely no cost. But that's not all -
+        we're an open-source project, meaning anyone can contribute and help
+        shape the future of image editing. Join us in revolutionizing the way
+        the world edits images - download now and unleash your imagination!
       </p>
       <div>
-        <button className='px-8 py-4 bg-[#2d2d2d] text-white text-[20px] drop-shadow-lg rounded-md'>
+        <button className='px-8 py-4 bg-[#2d2d2d] text-white text-[20px] drop-shadow-lg rounded-md hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500'>
           <a
-            href='http://github.com'
+            href='https://github.com/mohit838/ultimate-image-editor'
             target='_blank'
+            title='UIE | Ultimate Image Editor'
             className='flex items-center justify-center gap-3'
           >
             <svg
