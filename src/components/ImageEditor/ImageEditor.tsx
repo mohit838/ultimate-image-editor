@@ -6,9 +6,9 @@ const ImageEditor = () => {
   const [inversion, setInversion] = useState(0);
   const [grayscale, setGrayscale] = useState(0);
   const [currentFilter, setCurrentFilter] = useState<string>('Brightness');
-  // const [rotate, setRotate] = useState(0);
-  // const [flipHorizontal, setFlipHorizontal] = useState(1);
-  // const [flipVertical, setFlipVertical] = useState(1);
+  const [rotate, setRotate] = useState('0');
+  const [flipHorizontal, setFlipHorizontal] = useState('1');
+  const [flipVertical, setFlipVertical] = useState('1');
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   const loadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,11 +45,26 @@ const ImageEditor = () => {
     setInversion(0);
     setGrayscale(0);
     setCurrentFilter('Brightness');
+    setRotate('0');
+    setFlipVertical('0');
+    setFlipVertical('0');
+    setFlipHorizontal('0');
+  };
+
+  const handleAngleChange = (angle: string) => {
+    setRotate(angle);
   };
 
   // Apply filter to image
   const filterStyle = {
     filter: `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`,
+  };
+
+  // Apply transform to image
+  const transformStyle = {
+    transform: `rotate(${rotate}) scaleX(${
+      flipHorizontal.includes('180') ? -1 : 1
+    }) scaleY(${flipVertical.includes('180') ? -1 : 1})`,
   };
 
   return (
@@ -151,7 +166,13 @@ const ImageEditor = () => {
           <div className='mt-3'>
             <label className='title'>Rotate & Flip</label>
             <div className='grid grid-cols-4 gap-4'>
-              <button id='left' className='control-options-rotate-flip'>
+              <button
+                id='left'
+                className='control-options-rotate-flip'
+                onClick={() => {
+                  handleAngleChange('90');
+                }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-rotate-clockwise'
@@ -168,7 +189,13 @@ const ImageEditor = () => {
                   <path d='M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5' />
                 </svg>
               </button>
-              <button id='right' className='control-options-rotate-flip'>
+              <button
+                id='right'
+                className='control-options-rotate-flip'
+                onClick={() => {
+                  handleAngleChange('-90');
+                }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-rotate'
@@ -185,7 +212,13 @@ const ImageEditor = () => {
                   <path d='M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5' />
                 </svg>
               </button>
-              <button id='horizontal' className='control-options-rotate-flip'>
+              <button
+                id='horizontal'
+                className='control-options-rotate-flip'
+                onClick={() => {
+                  setFlipHorizontal('180');
+                }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-flip-horizontal'
@@ -204,7 +237,13 @@ const ImageEditor = () => {
                   <path d='M7 8l10 0l-10 -5l0 5' />
                 </svg>
               </button>
-              <button id='vertical' className='control-options-rotate-flip'>
+              <button
+                id='vertical'
+                className='control-options-rotate-flip'
+                onClick={() => {
+                  setFlipVertical('-180');
+                }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-flip-vertical'
@@ -245,7 +284,7 @@ const ImageEditor = () => {
                 : '/common/image-placeholder.svg'
             }`}
             alt='preview-img'
-            style={filterStyle}
+            style={{ ...filterStyle, ...transformStyle }}
           />
         </div>
         <div className='mt-4 flex items-center justify-between gap-3'>
