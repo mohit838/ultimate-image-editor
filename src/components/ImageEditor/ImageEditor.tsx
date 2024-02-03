@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const ImageEditor = () => {
   const [brightness, setBrightness] = useState(100);
@@ -6,11 +6,20 @@ const ImageEditor = () => {
   const [inversion, setInversion] = useState(0);
   const [grayscale, setGrayscale] = useState(0);
   const [currentFilter, setCurrentFilter] = useState<string>('Brightness');
-  const [leftRotate, setLeftRotate] = useState('0');
-  const [rightRotate, setRightRotate] = useState('0');
-  const [flipHorizontal, setFlipHorizontal] = useState('1');
-  const [flipVertical, setFlipVertical] = useState('1');
+  const [rotation, setRotation] = useState(0);
+  const [flipHorizontal, setFlipHorizontal] = useState(1);
+  const [flipVertical, setFlipVertical] = useState(1);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const previewImgRef = useRef<HTMLImageElement>(null);
+
+  // useEffect(() => {
+  //   if (previewImgRef.current && imageFile) {
+  //     previewImgRef.current.onload = () => {
+  //       saveImage();
+  //     };
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [previewImgRef.current, imageFile]);
 
   const loadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file: File | null = e.target.files ? e.target.files[0] : null;
@@ -40,32 +49,63 @@ const ImageEditor = () => {
     setCurrentFilter(controlName);
   };
 
+  const handleRotateLeft = () => {
+    setRotation(rotation - 90);
+  };
+
+  const handleRotateRight = () => {
+    setRotation(rotation + 90);
+  };
+
+  const handleFlipHorizontal = () => {
+    setFlipHorizontal(flipHorizontal * -1);
+  };
+
+  const handleFlipVertical = () => {
+    setFlipVertical(flipVertical * -1);
+  };
+
+  const saveImage = () => {
+    if (!previewImgRef.current || !imageFile) return;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    if (!ctx) return;
+
+    canvas.width = previewImgRef.current.naturalWidth;
+    canvas.height = previewImgRef.current.naturalHeight;
+
+    ctx.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    if (rotation !== 0) {
+      ctx.rotate((rotation * Math.PI) / 180);
+    }
+    ctx.scale(flipHorizontal, flipVertical);
+    ctx.drawImage(
+      previewImgRef.current,
+      -canvas.width / 2,
+      -canvas.height / 2,
+      canvas.width,
+      canvas.height
+    );
+
+    const link = document.createElement('a');
+    link.download = 'image.jpg';
+    link.href = canvas.toDataURL();
+    link.click();
+  };
+
   const handleResetFilters = () => {
     setBrightness(100);
     setSaturation(100);
     setInversion(0);
     setGrayscale(0);
     setCurrentFilter('Brightness');
-    setRightRotate('0');
-    setLeftRotate('0');
-    setFlipVertical('0');
-    setFlipVertical('0');
-    setFlipHorizontal('0');
+    setRotation(0);
+    setFlipHorizontal(1);
+    setFlipVertical(1);
   };
-
-  // Apply filter to image
-  const filterStyle = {
-    filter: `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`,
-  };
-
-  // Apply transform to image
-  const transformStyle = {
-    transform: `rotate(${leftRotate ? leftRotate : rightRotate}deg) scaleX(${
-      flipHorizontal.includes('180') ? -1 : 1
-    }) scaleY(${flipVertical.includes('180') ? -1 : 1})`,
-  };
-
-  console.log(transformStyle);
 
   return (
     <div className='grid grid-cols-1 tablet:grid-cols-2 gap-5 p-5'>
@@ -169,9 +209,7 @@ const ImageEditor = () => {
               <button
                 id='left'
                 className='control-options-rotate-flip'
-                onClick={() => {
-                  setRightRotate('90');
-                }}
+                onClick={handleRotateLeft}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -192,9 +230,7 @@ const ImageEditor = () => {
               <button
                 id='right'
                 className='control-options-rotate-flip'
-                onClick={() => {
-                  setLeftRotate('-90');
-                }}
+                onClick={handleRotateRight}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -213,11 +249,9 @@ const ImageEditor = () => {
                 </svg>
               </button>
               <button
-                id='horizontal'
+                id='vertical'
                 className='control-options-rotate-flip'
-                onClick={() => {
-                  setFlipHorizontal('180');
-                }}
+                onClick={handleFlipVertical}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -238,11 +272,9 @@ const ImageEditor = () => {
                 </svg>
               </button>
               <button
-                id='vertical'
+                id='horizontal'
                 className='control-options-rotate-flip'
-                onClick={() => {
-                  setFlipVertical('-180');
-                }}
+                onClick={handleFlipHorizontal}
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -278,19 +310,27 @@ const ImageEditor = () => {
       <div>
         <div className='preview-img'>
           <img
+            ref={previewImgRef}
             src={`${
               imageFile
                 ? URL.createObjectURL(imageFile)
                 : '/common/image-placeholder.svg'
             }`}
             alt='preview-img'
-            style={{ ...filterStyle, ...transformStyle }}
+            style={{
+              transform: `rotate(${rotation}deg) scaleX(${flipHorizontal}) scaleY(${flipVertical})`,
+              filter: `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`,
+            }}
           />
         </div>
         <div className='mt-4 flex items-center justify-between gap-3'>
           <input className='' type='file' onChange={loadImage} />
 
-          {imageFile && <button className='btn-primary'>{'Save Image'}</button>}
+          {imageFile && (
+            <button className='btn-primary' onClick={saveImage}>
+              {'Save Image'}
+            </button>
+          )}
         </div>
       </div>
     </div>
