@@ -1,6 +1,6 @@
 const ImageEditor = () => {
   return (
-    <div className='grid grid-cols-2 gap-5 p-5'>
+    <div className='grid grid-cols-1 tablet:grid-cols-2 gap-5 p-5'>
       {/* left */}
       <div>
         {/* Options */}
@@ -8,7 +8,7 @@ const ImageEditor = () => {
           {/* Filters */}
           <div className=''>
             <label className='text-[2rem] font-semibold'>Filters</label>
-            <div className='grid grid-cols-2 gap-5 py-3'>
+            <div className='grid grid-cols-1 tablet:grid-cols-2 gap-5 py-3'>
               <button id='brightness' className='control-options'>
                 Brightness
               </button>
@@ -25,7 +25,7 @@ const ImageEditor = () => {
           </div>
 
           {/* Filter Range Control */}
-          <div className='mt-2'>
+          <div className='mt-3'>
             <div className='filter-info'>
               <p className='name'>Brighteness</p>
               <p className='value'>100%</p>
@@ -40,27 +40,10 @@ const ImageEditor = () => {
           </div>
 
           {/* Rotate and Flip Control */}
-          <div className='mt-2'>
+          <div className='mt-3'>
             <label className='title'>Rotate & Flip</label>
             <div className='grid grid-cols-4 gap-4'>
               <button id='left' className='control-options-rotate-flip'>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='icon icon-tabler icon-tabler-rotate'
-                  width='30'
-                  height='30'
-                  viewBox='0 0 24 24'
-                  strokeWidth='2'
-                  stroke='#fff'
-                  fill='none'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-                  <path d='M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5' />
-                </svg>
-              </button>
-              <button id='right' className='control-options-rotate-flip'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-rotate-clockwise'
@@ -75,6 +58,23 @@ const ImageEditor = () => {
                 >
                   <path stroke='none' d='M0 0h24v24H0z' fill='none' />
                   <path d='M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5' />
+                </svg>
+              </button>
+              <button id='right' className='control-options-rotate-flip'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='icon icon-tabler icon-tabler-rotate'
+                  width='30'
+                  height='30'
+                  viewBox='0 0 24 24'
+                  strokeWidth='2'
+                  stroke='#fff'
+                  fill='none'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                >
+                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                  <path d='M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5' />
                 </svg>
               </button>
               <button id='horizontal' className='control-options-rotate-flip'>
@@ -127,10 +127,12 @@ const ImageEditor = () => {
 
       {/* Right */}
       <div>
-        <input type='file' />
-        <div>
-          <button>{'Choose Image'}</button>
-          <button>{'Save Image'}</button>
+        <div className='preview-img'>
+          <img src='/common/image-placeholder.svg' alt='preview-img' />
+        </div>
+        <div className='mt-4 flex items-center justify-between gap-3'>
+          <button className='btn-primary '>{'Choose Image'}</button>
+          <button className='btn-primary '>{'Save Image'}</button>
         </div>
       </div>
     </div>

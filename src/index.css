@@ -34,7 +34,7 @@ body {
 /* When You have complex or long tailwind cls */
 @layer components {
   .btn-primary {
-    @apply py-2 px-7 bg-[#ff8e69] text-[#242424] font-semibold rounded-md shadow-md hover:bg-[#ff6347];
+    @apply py-2 max-mobile:w-full tablet:px-7 bg-[#ff8e69] text-[#242424] font-semibold rounded-md shadow-md hover:bg-[#ff6347];
   }
 
   .page-content-center {
@@ -55,4 +55,8 @@ body {
 
 .control-options-rotate-flip {
   @apply px-4 py-2 mt-2 flex items-center justify-center hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500 rounded-md border border-dashed border-[#f9f9f9] text-white text-[1.5rem];
+}
+
+.preview-img > img {
+  @apply w-full rounded-md;
 }

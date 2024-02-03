@@ -8,7 +8,6 @@ export default {
       tablet: '768px',
       laptop: '1024px',
       desktop: '1280px',
-      '2xl': '1536px',
     },
     fontFamily: {
       jostFont: ['Jost', 'sans-serif'],
