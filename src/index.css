@@ -38,6 +38,6 @@ body {
   }
 
   .page-content-center {
-    @apply flex items-center justify-center h-screen;
+    @apply flex items-center justify-center;
   }
 }
