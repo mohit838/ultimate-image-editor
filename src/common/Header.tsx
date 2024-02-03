@@ -10,11 +10,10 @@ const Header = () => {
       <p className='text-[1.125rem] font-jostFont font-normal container mx-auto py-5'>
         Unlock your creative potential with our open and free image editing
         software. With just a few clicks, you can rotate, flip, and adjust color
-        contrast to perfection, all at absolutely no cost.
-        <br /> But that's not all - we're an open-source project, meaning anyone
-        can contribute and help shape the future of image editing. Join us in
-        revolutionizing the way the world edits images - download now and
-        unleash your imagination!
+        contrast to perfection, all at absolutely no cost. But that's not all -
+        we're an open-source project, meaning anyone can contribute and help
+        shape the future of image editing. Join us in revolutionizing the way
+        the world edits images - download now and unleash your imagination!
       </p>
       <div>
         <button className='px-8 py-4 bg-[#2d2d2d] text-white text-[20px] drop-shadow-lg rounded-md hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500'>
