@@ -1,0 +1,97 @@
+<svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="437"
+      height="316"
+      viewBox="0 0 437 316"
+    >
+      <defs>
+        <linearGradient
+          id="linear-gradient"
+          x1="1.047"
+          x2="1.032"
+          y1="0.043"
+          y2="0.924"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stopColor="#c2c2c2"></stop>
+          <stop offset="1" stopColor="#9f9f9f"></stop>
+        </linearGradient>
+      </defs>
+      <g data-name="Group 395" transform="translate(-561 -195)">
+        <path
+          fill="#f2f2f2"
+          d="M5 0h427a5 5 0 015 5v306a5 5 0 01-5 5H5a5 5 0 01-5-5V5a5 5 0 015-5z"
+          data-name="Path 134"
+          transform="translate(561 195)"
+        ></path>
+        <g opacity="0.55" transform="translate(292.867 165.465)">
+          <path
+            fill="#f2f2f2"
+            d="M7.014 0h161.457a7.014 7.014 0 017.014 7.014v65a7.014 7.014 0 01-7.014 7.014H7.014A7.014 7.014 0 010 72.01v-65A7.014 7.014 0 017.014 0z"
+            transform="translate(399.134 122.791)"
+          ></path>
+          <g transform="translate(440.421 122.536)">
+            <rect
+              width="43.895"
+              height="48.142"
+              fill="#9f9f9f"
+              rx="8.397"
+              transform="rotate(-16.343 116.08 16.669)"
+            ></rect>
+            <g
+              stroke="#fff"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              transform="rotate(16.321 16.35 114.021)"
+            >
+              <rect
+                width="57.382"
+                height="61.709"
+                fill="url(#linear-gradient)"
+                strokeWidth="5.398"
+                rx="4.596"
+              ></rect>
+              <g strokeWidth="2.257" transform="translate(6.344 5.617)">
+                <path fill="#ccc" d="M0 0H45.119V41.342H0z"></path>
+                <path fill="#fff" d="M0 0H45.119V19.293H0z"></path>
+                <path
+                  fill="#ccc"
+                  fillRule="evenodd"
+                  d="M2.756 19.293l3.534-4.919 5.561-4.149 1.459 1.707 1.246-3.554.753-.274 1.228-2.592 16.537 16.537"
+                ></path>
+                <path
+                  fill="#b3b3b3"
+                  fillRule="evenodd"
+                  d="M16.537 5.512q.564 2.27 1 4.571.328 1.745.58 3.5l-2.03-.655-4.236-2.703.489 4.265-.148 2.278.924 2.791 6.724-1.08 7.723-1.942-4.393-7.114-.891 1.372-2.492-2.033z"
+                ></path>
+                <path
+                  fill="#ccc"
+                  fillRule="evenodd"
+                  d="M13.781 22.05l7.524-6.838 1.7-.889 2.176-4.06 2.381-1.994 16.537 16.537"
+                ></path>
+                <path
+                  fill="#b3b3b3"
+                  fillRule="evenodd"
+                  d="M27.562 8.269l3.3 7.434v5.533l2.063 1.788a7.493 7.493 0 012.062-1.443 25.381 25.381 0 014.334-1.251 4.781 4.781 0 001.673-.723 2.741 2.741 0 00.347-.312h-2.754l-3.725-3.726-2.741-4.5-.942.812z"
+                ></path>
+                <path
+                  fill="#fff"
+                  fillRule="evenodd"
+                  d="M13.781 41.342c-.038-.882-.81-1.618 1.573-2.818 2.924-1.472 11.566-3.3 13.979-5.511 1.785-1.638-6.469-3.461-5.055-5.427.642-.893 5.422-1.834 7.547-2.781 2.013-.9 1.391-1.819 2.885-2.754 1.444-.902 6.28-1.816 6.633-2.758-.957.967-6.324 1.875-8.269 2.756-2.052.93-1.972 1.831-4.541 2.709-2.768.946-8.19 1.888-9.436 2.8-2.61 1.917 4.305 3.914 1.489 5.512-3.815 2.165-13.72 3.978-17.829 5.512C-.083 39.647.146 40.217 0 41.342"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+        <text
+          fill="#bfbfbf"
+          fontFamily="Poppins-Regular, Poppins"
+          fontSize="16"
+          transform="translate(780 411.768)"
+        >
+          <tspan x="-85.488" y="0">
+            Choose Image to Edit
+          </tspan>
+        </text>
+      </g>
+    </svg>
