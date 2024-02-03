@@ -1,6 +1,6 @@
 # Ultimate Image Editor
 
-Open And Free Ultimate Imaeg Editor
+Open And Free Ultimate Image Editor
 
 ## How to run this project
 
