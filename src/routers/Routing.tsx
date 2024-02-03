@@ -20,11 +20,11 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
-    path: '/ultimate-image-editor/',
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: '/ultimate-image-editor/',
+        path: '/',
         element: <Home />,
       },
     ],
