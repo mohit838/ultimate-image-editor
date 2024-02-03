@@ -57,6 +57,10 @@ body {
   @apply px-4 py-2 mt-2 flex items-center justify-center hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500 rounded-md border border-dashed border-[#f9f9f9] text-white text-[1.5rem];
 }
 
+.preview-img {
+  @apply overflow-hidden;
+}
+
 .preview-img > img {
   @apply w-full rounded-md;
 }

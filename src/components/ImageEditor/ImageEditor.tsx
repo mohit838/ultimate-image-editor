@@ -6,7 +6,8 @@ const ImageEditor = () => {
   const [inversion, setInversion] = useState(0);
   const [grayscale, setGrayscale] = useState(0);
   const [currentFilter, setCurrentFilter] = useState<string>('Brightness');
-  const [rotate, setRotate] = useState('0');
+  const [leftRotate, setLeftRotate] = useState('0');
+  const [rightRotate, setRightRotate] = useState('0');
   const [flipHorizontal, setFlipHorizontal] = useState('1');
   const [flipVertical, setFlipVertical] = useState('1');
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -45,14 +46,11 @@ const ImageEditor = () => {
     setInversion(0);
     setGrayscale(0);
     setCurrentFilter('Brightness');
-    setRotate('0');
+    setRightRotate('0');
+    setLeftRotate('0');
     setFlipVertical('0');
     setFlipVertical('0');
     setFlipHorizontal('0');
-  };
-
-  const handleAngleChange = (angle: string) => {
-    setRotate(angle);
   };
 
   // Apply filter to image
@@ -62,10 +60,12 @@ const ImageEditor = () => {
 
   // Apply transform to image
   const transformStyle = {
-    transform: `rotate(${rotate}) scaleX(${
+    transform: `rotate(${leftRotate ? leftRotate : rightRotate}deg) scaleX(${
       flipHorizontal.includes('180') ? -1 : 1
     }) scaleY(${flipVertical.includes('180') ? -1 : 1})`,
   };
+
+  console.log(transformStyle);
 
   return (
     <div className='grid grid-cols-1 tablet:grid-cols-2 gap-5 p-5'>
@@ -170,7 +170,7 @@ const ImageEditor = () => {
                 id='left'
                 className='control-options-rotate-flip'
                 onClick={() => {
-                  handleAngleChange('90');
+                  setRightRotate('90');
                 }}
               >
                 <svg
@@ -193,7 +193,7 @@ const ImageEditor = () => {
                 id='right'
                 className='control-options-rotate-flip'
                 onClick={() => {
-                  handleAngleChange('-90');
+                  setLeftRotate('-90');
                 }}
               >
                 <svg
