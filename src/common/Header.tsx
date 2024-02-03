@@ -17,7 +17,7 @@ const Header = () => {
         unleash your imagination!
       </p>
       <div>
-        <button className='px-8 py-4 bg-[#2d2d2d] text-white text-[20px] drop-shadow-lg rounded-md'>
+        <button className='px-8 py-4 bg-[#2d2d2d] text-white text-[20px] drop-shadow-lg rounded-md hover:bg-[#ff6347] hover:text-[#242424] hover:transition-all hover:duration-500'>
           <a
             href='http://github.com'
             target='_blank'
