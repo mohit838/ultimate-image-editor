@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "type": "module",
   "author": "Mohammad Mohitul Islam",
-  "github": "https://github.com/mohit838/ultimate-image-editor",
+  "github": "https://github.com/mohit838/ultimate-image-editor/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

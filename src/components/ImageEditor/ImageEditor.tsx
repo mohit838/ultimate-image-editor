@@ -305,7 +305,7 @@ const ImageEditor = () => {
             src={`${
               imageFile
                 ? URL.createObjectURL(imageFile)
-                : "/common/image-placeholder.svg"
+                : "/ultimate-image-editor//common/image-placeholder.svg"
             }`}
             alt="preview-img"
             style={{
