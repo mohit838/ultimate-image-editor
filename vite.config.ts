@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/ultimate-image-editor/",
+  base: "/",
   plugins: [react()],
   server: {
     // this ensures that the browser opens upon server start

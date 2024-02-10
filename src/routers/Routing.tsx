@@ -1,15 +1,15 @@
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Footer from '../common/Footer';
-import Header from '../common/Header';
-import NotFound from '../common/NotFound';
-import Home from '../components/Home/Home';
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Footer from "../common/Footer";
+import Header from "../common/Header";
+import NotFound from "../common/NotFound";
+import Home from "../components/Home/Home";
 
 const Layout = () => {
   return (
     <>
-      <div className='flex flex-col h-screen'>
+      <div className="flex flex-col h-screen">
         <Header />
-        <div className='flex-1'>
+        <div className="flex-1">
           <Outlet />
         </div>
         <Footer />
@@ -20,17 +20,17 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
-    path: '/ultimate-image-editor/',
+    path: "/",
     element: <Layout />,
     children: [
       {
-        path: '/ultimate-image-editor/',
+        path: "//",
         element: <Home />,
       },
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: (
       <>
         <NotFound />
