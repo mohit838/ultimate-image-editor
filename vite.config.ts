@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     // this ensures that the browser opens upon server start
-    open: true,
+    // open: true,
     // this sets a default port to 3001
     port: 3001,
   },
